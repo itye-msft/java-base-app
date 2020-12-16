@@ -12,6 +12,11 @@ import org.springframework.web.bind.annotation.RestController;
 public class DemoApp {
 
 	@Autowired
+	public DemoApp(IConfigService configService)
+	{
+		this.myConfig = configService;
+	}
+
 	private IConfigService myConfig;
 
 	@Value("${application.message:Not configured by a Spring Cloud Server}")
