@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<Configuration>
+<Configuration packages="com.microsoft.applicationinsights.log4j.v2">
     <Appenders>
         <Console name="Console" target="SYSTEM_OUT">
             <PatternLayout
@@ -21,6 +21,7 @@
                 <TimeBasedTriggeringPolicy />
             </Policies>
         </RollingFile>
+        <ApplicationInsightsAppender name="aiAppender" instrumentationKey="40bf5322-e8a5-485e-be19-39680ba7077f" />
     </Appenders>
 
     <Loggers>
@@ -28,6 +29,7 @@
         <Root level="info">
             <AppenderRef ref="RollingFile" />
             <AppenderRef ref="Console" />
+            <AppenderRef ref="aiAppender"/>
         </Root>
     </Loggers>
 
